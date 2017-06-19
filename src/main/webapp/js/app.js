@@ -18,6 +18,11 @@ angular
 						function ( $rootScope) {
 			
 			console.log(" Inside appCtrl " );
+			$rootScope.appName = "Simple WebApp ";
+			
+			
+			
+			
 				} 
 						
 			
