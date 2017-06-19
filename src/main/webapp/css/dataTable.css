@@ -1,0 +1,46 @@
+
+.dashboard-task-grid {
+    width: 100%;
+    height: 300px;
+}
+
+
+.new-cnr-grid {
+    width: 100%;
+    height: 100%;
+}
+
+.header-cell-inbox{
+    border-bottom: 2px solid #f4f4f4;
+    padding: 8px;
+    line-height: 1.42857143;
+    font-weight: bold;
+    display: table-header-group;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.inbox-cell{
+    padding-left: 8px;
+    line-height: 1.42857143;
+    display: table-cell;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+div.ui-grid-cell-contents.invalid {
+    box-shadow: inset 0px 0px 3px 1px red;
+}
+div.ui-grid-cell-contents.changed {
+    background: yellowgreen;
+}
+
+div.ui-grid-cell-contents.searched {
+    background: yellow;
+}
+
+.tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
