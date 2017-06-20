@@ -3,22 +3,27 @@
 angular
         .module(
         		'simpleWeb',
-        		['ngRoute']
+        		['ngRoute', 'ui.router']
         		)
         		
         //application configuration
-        .config ( [, ) {
-	
-			console.log(" Inside simpleWeb config " );
-	
-		} ] )
-		
+        .config(['$stateProvider', '$urlRouterProvider', 
+		    function($stateProvider, $urlRouterProvider) {
+		      $urlRouterProvider.otherwise('/login');
+		      $stateProvider
+		      .state('home', {
+		        url: '/'
+		      });
+		    }
+        	])
+
+        	
 		//main page controller
-		.controller ( 'appCtrl', [ '$rootScope', 
-						function ( $rootScope) {
+		.controller ( 'appCtrl', [ '$rootScope', '$scope', 
+						function ( $rootScope, $scope) {
 			
 			console.log(" Inside appCtrl " );
-			$rootScope.appName = "Simple WebApp ";
+            $scope.appName = "Simple WebApp ";
 			
 			
 			
