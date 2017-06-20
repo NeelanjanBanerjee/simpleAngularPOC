@@ -1,7 +1,4 @@
-/* 
- * (c)2015 Cognizant
- * 
- */
+
 
 'use strict';
 
