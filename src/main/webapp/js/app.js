@@ -12,7 +12,12 @@ angular
 		      $urlRouterProvider.otherwise('/login');
 		      $stateProvider
 		      .state('home', {
-		        url: '/'
+		        url: '/dashboard',
+		        view: {
+		        	''			: {templateUrl: './templates/dashboard.html'},
+		        	'nav@home'  : {templateUrl: './dashboard/nav.html'},
+		        	'body@home' : {templateUrl: './dashboard/body.html'}
+		        }
 		      });
 		    }
         	])
