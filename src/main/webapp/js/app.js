@@ -11,7 +11,7 @@ angular
 		    function($stateProvider, $urlRouterProvider) {
 		      $urlRouterProvider.otherwise('/login');
 		      $stateProvider
-		      .state('home', {
+		      .state('dashboard', {
 		        url: '/dashboard',
 		        view: {
 		        	'header'	: {templateUrl: './dashboard/header.html'},
@@ -20,8 +20,8 @@ angular
 		        }
 		      })
 		       .state('login', {
-		    	   			url: '/login',
-		    	   			templateUrl: './dashboard/header.html'
+		    	   			url: '/',
+		    	   			templateUrl: './dashboard/login.html'
 		       		});
 		    }
         	])
