@@ -14,11 +14,15 @@ angular
 		      .state('home', {
 		        url: '/dashboard',
 		        view: {
-		        	''			: {templateUrl: './templates/dashboard.html'},
-		        	'nav@home'  : {templateUrl: './dashboard/nav.html'},
-		        	'body@home' : {templateUrl: './dashboard/body.html'}
+		        	'header'	: {templateUrl: './dashboard/header.html'},
+		        	'nav'	  	: {templateUrl: './dashboard/nav.html'},
+		        	'body' 		: {templateUrl: './dashboard/body.html'}
 		        }
-		      });
+		      })
+		       .state('login', {
+		    	   			url: '/login',
+		    	   			templateUrl: './dashboard/header.html'
+		       		});
 		    }
         	])
 
