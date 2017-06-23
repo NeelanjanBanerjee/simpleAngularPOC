@@ -3,26 +3,35 @@
 angular
         .module(
         		'simpleWeb',
-        		['ngRoute', 'ui.router']
+        		[
+        		'ngRoute',
+        		'ui.router',
+        		'simpleWeb.login'
+        		]
         		)
         		
         //application configuration
         .config(['$stateProvider', '$urlRouterProvider', 
 		    function($stateProvider, $urlRouterProvider) {
-		      $urlRouterProvider.otherwise('/login');
+		      $urlRouterProvider.otherwise('/');
 		      $stateProvider
-		      .state('dashboard', {
-		        url: '/dashboard',
-		        view: {
-		        	'header'	: {templateUrl: './dashboard/header.html'},
-		        	'nav'	  	: {templateUrl: './dashboard/nav.html'},
-		        	'body' 		: {templateUrl: './dashboard/body.html'}
-		        }
-		      })
-		       .state('login', {
-		    	   			url: '/',
-		    	   			templateUrl: './dashboard/login.html'
-		       		});
+			      .state('root', {
+	  	   			url: '/',
+	  	   			templateUrl: './index.html'
+			      		})
+			      .state('login', {
+	  	   			url: '/login',
+	  	   			templateUrl: './views/login/login.html',
+					controller: 'LoginCtrl'
+			      		})
+			      .state('dashboard', {
+			        url: '/dashboard',
+			        view: {
+			        	'header'	: {templateUrl: './dashboard/header.html'},
+			        	'nav'	  	: {templateUrl: './dashboard/nav.html'},
+			        	'body' 		: {templateUrl: './dashboard/body.html'}
+			        		}
+		      			});
 		    }
         	])
 

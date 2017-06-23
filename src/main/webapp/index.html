@@ -30,51 +30,56 @@
  
  <!--  <body ng-view class="skin-red sidebar-mini sidebar-collapse" ng-class="{'dataLoading': isDataLoading}">
  -->
- 	<div class="container">
-       <div class="splash" ng-cloak="">
-           <div class="login-page">
-               <div class="login-box animated fadeIn" id="login-box">
-                   <div class="login-logo">
-                       Demo <b>Simple Angular App</b> is loading...<br />
-                   </div><!-- /.login-logo -->
-                   <div ui-sref="#!/login"></div>
-                   <div class="progress progress-sm active">
-                       <div ng-if = "dataLoading" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                           <!--                            <span class="sr-only">20% Complete</span>-->
-                       </div>
-                   </div>
-                   
-                   <div class="login-box-body bg-gray">
-                       <p class="login-box-msg">&copy; Demo 2017. All rights reserved.</p>
-                   </div>
-               </div>
-           </div>
-       </div>
+ 
+      	
+	<div class="jumbotron">
+		<div class="container">
+			<!-- NAVIGATION -->
+			<nav class="navbar navbar-inverse" height="100">
+				<div class="navbar-header">
+					<img class="img-responsive" src="./css/images/Cognizant_LOGO.png" alt="Cognizant" > 
+				
+					<a class="navbar-brand" ui-sref="#">Sample Web App</a>
+				</div>
+				
+			</nav>
+			<!-- MAIN CONTENT -->
+			<div>
+				<div ui-view="login"></div>
+			</div>
+			<div class="col-md-6 col-md-offset-3" ng-controller="LoginCtrl">
+			    <h2>Login</h2>
+			    <form name="form" ng-submit="login()" role="form">
+			        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+			            <label for="username">Username</label>
+			            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+			            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+			        </div>
+			        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+			            <label for="password">Password</label>
+			            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+			            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+			        </div>
+			        <div class="form-actions">
+			            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+			            <a href="#!/register" class="btn btn-link">Register</a>
+			        </div>
+			    </form>
+			</div>
+			
+			<!-- Footer Content -->
+			<div class="text-center">
+				<p>A tutorial <a href="#" target="_blank">...</a></p>
+			</div>
+		</div>
+
+		</div>
+	</div>
+     	
+        	
  
   
-  <!-- 
-<body>
- 
-    <div class="container">
-            <h2>{{appName}}</h2>
-        <form>
-          
-          <div class="form-group">
-	      	<label for="email">UserName:</label>
-	      	<input type="input" class="form-control" id="input" placeholder="Enter UserName" name="username" >
-	      </div>
-	    <div class="form-group">
-	      <label for="pwd">Password:</label>
-	      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-	    </div>
-	    <div class="checkbox">
-	      <label><input type="checkbox" name="remember"> Remember me</label>
-	    </div>
-	    <button type="submit" class="btn btn-default">Submit</button>
-      </form>
- 
-    </div>
-  -->
+
  
     <!--start lib imports -->
       <script  type="text/javascript" src="js/libs/jQuery/jQuery-2.1.3.min.js"></script>
@@ -84,11 +89,13 @@
       <script  type="text/javascript" src="js/libs/angular/angular.min.js"></script>
       <script  type="text/javascript" src="js/libs/angular/angular-route.min.js"></script>
       <script  type="text/javascript" src="js/libs/angular/angular-touch.min.js"></script>
-      
+      <script  type="text/javascript" src="js/libs/angular/angular-ui-router.js"></script>
       <script  type="text/javascript" src="js/libs/angular/angular-cookies.min.js"></script>
       <script  type="text/javascript" src="js/libs/angular/ui-bootstrap-tpls-0.13.3.min.js"></script>
       <script  type="text/javascript" src="js/libs/angular/angucomplete-alt.min.js"></script>
+      <script  type="text/javascript" src="views/login/login.js"></script>
       <script  type="text/javascript" src="js/app.js"></script>
+	  
      
  
 	</body>

@@ -1,42 +1,19 @@
-<div class="login-page">
-    <div class="login-box animated fadeIn" id="login-box">
-        <div class="login-logo">
-            <!--            <img src="css/images/overlay-featured.png" alt="Wright Logo">-->
-        </div><!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg"><b>Smart</b>CNR</p>
-            <div ng-show="error" class="alert alert-danger"><center>{{error}}</center></div>
-            <form ng-submit="login()" ng-model = "loginData">
-                <div class="form-group has-feedback">
-                    <input ng-disabled="dataLoading" type="text" class="form-control" placeholder="User ID" ng-model="loginData.username" required/>
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input ng-disabled="dataLoading" type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required/>
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="progress progress-sm active">
-                        <div ng-if = "dataLoading" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                            <!--                            <span class="sr-only">20% Complete</span>-->
-                        </div>
-                        <center><div ng-show="error" class="alert alert-danger"><div class = "animated flash">{{error}}</div></div></center>
-                    </div>
-                    <div class="col-xs-8">
-                    </div><!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat" ng-disabled="form.$invalid || dataLoading">Sign In</button>
-                    </div><!-- /.col -->
-                </div>
-                <div>
-                    <img src="css/images/overlay-featured.png" alt="Wright Logo" class="img-responsive" style="height: 40px; width: 100%;">
-                </div>
-
-            </form>
+<div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <form name="form" ng-submit="login()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
         </div>
-        <div class="login-box-msg">
-            <br>
-            <h6 style="color: #a2181e;">*Your user credentials are same as your corporate login</h6>
+        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
         </div>
-    </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <a href="#!/register" class="btn btn-link">Register</a>
+        </div>
+    </form>
 </div>
